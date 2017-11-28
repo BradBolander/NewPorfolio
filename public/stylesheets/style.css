@@ -1,0 +1,123 @@
+html {
+  overflow: scroll;
+  height: 100%;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.00);
+}
+
+.navigation {
+  border-bottom: thin solid black;
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.navigation-header {
+  font-size: 24px;
+}
+
+.navigation-item {
+  font-size: 18px;
+  margin-right: 20px;
+  cursor: pointer;
+  display: block;
+  float: left;
+  margin-top: 5px;
+}
+
+.navigation-item:hover {
+  color: #9BE4FF;
+}
+
+#hero-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+
+.dn {
+  display: none;
+}
+
+.project-container {
+  height: 600px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.project-item {
+  height: 250px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-item:hover > .project-item-title {
+  display: block;
+}
+
+.project-item-title {
+  position: absolute;
+  display: none;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+}
+
+.project-item-image {
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0px;
+  transition: all .5s;
+}
+
+.project-item-image:hover {
+}
+
+
+.projects-header {
+  text-align: center;
+}
+
+.grid-nav-item {
+  margin-bottom: 30px;
+  height: 150px;
+  text-align: center;
+  border: thin solid black;
+}
+
+.grid-nav-wrap {
+    margin: 0 auto;
+    margin-top: 60px;
+    display: block;
+}
+
+.dn {
+  display: none;
+}
+
+.db {
+  display: block;
+}
+
+.experience-container {
+  background-color: rgba(0, 0, 0, 0.158)
+}
+
+.experience-item {
+  border: thin solid black;
+}
+
+.experience-item-image {
+  width: 50px;
+}
