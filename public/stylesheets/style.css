@@ -7,6 +7,17 @@ body {
   background: rgba(0, 0, 0, 0.00);
 }
 
+#hero-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+
+
+/* Navigation */
 .navigation {
   border-bottom: thin solid black;
   display: block;
@@ -23,7 +34,7 @@ body {
   margin-right: 20px;
   cursor: pointer;
   display: block;
-  float: left;
+  float: right;
   margin-top: 5px;
 }
 
@@ -31,19 +42,9 @@ body {
   color: #9BE4FF;
 }
 
-#hero-container {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: -1;
-}
 
-.dn {
-  display: none;
-}
 
+/* Projects */
 .project-container {
   height: 600px;
   padding-top: 50px;
@@ -84,14 +85,17 @@ body {
 .project-item-image:hover {
 }
 
-
 .projects-header {
   text-align: center;
 }
 
+
+
+/* Grid Navigation */
 .grid-nav-item {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   height: 150px;
+  margin-left: 25px;
   text-align: center;
   border: thin solid black;
 }
@@ -102,14 +106,9 @@ body {
     display: block;
 }
 
-.dn {
-  display: none;
-}
 
-.db {
-  display: block;
-}
 
+/* Experience */
 .experience-container {
   background-color: rgba(0, 0, 0, 0.158)
 }
@@ -153,4 +152,25 @@ body {
   border-bottom: thin solid black;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  text-align: center;
+}
+
+
+/* About */
+.about-container {
+  border: thin solid black;
+}
+
+
+/* General */
+.dn {
+  display: none;
+}
+
+.db {
+  display: block;
+}
+
+.dn {
+  display: none;
 }

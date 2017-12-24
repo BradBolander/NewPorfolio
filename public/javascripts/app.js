@@ -23,6 +23,12 @@ var App = React.createClass({
         });
     },
 
+    toggleAbout: function() {
+        this.setState({
+            showAbout: this.state.showAbout == true ? false : true
+        });
+    },
+
     toggleExperience: function() {
         this.setState({
             showExperience: this.state.showExperience == true ? false : true
@@ -32,9 +38,9 @@ var App = React.createClass({
     render: function() {
       return (
         <div id="app">
-            <Navigation toggleProjects={this.toggleProjects} toggleExperience={this.toggleExperience} />
+            <Navigation toggleAbout={this.toggleAbout} toggleProjects={this.toggleProjects} toggleExperience={this.toggleExperience} />
             <div className="col-xs-6 col-lg-offset-3 col-md-offset-3">
-                <GridNavigation showGridNav={this.state.showGridNav} toggleExperience={this.toggleExperience} toggleProjects={this.toggleProjects} />
+                <GridNavigation showGridNav={this.state.showGridNav} toggleAbout={this.toggleAbout} toggleExperience={this.toggleExperience} toggleProjects={this.toggleProjects} />
                 <Experience showExperience={this.state.showExperience} />
                 <ProjectGrid toggleProjects={this.toggleProjects} showProjects={this.state.showProjects} />
             </div>
@@ -49,11 +55,11 @@ var App = React.createClass({
     render: function() {
         return (
             <div className="navigation col-xs-12">
-                <div className="col-xs-9">
+                <div className="col-xs-8">
                     <span className="navigation-header">Brad Bolander</span>
                 </div>
-                <div className="col-xs-3">
-                    <span className="navigation-item">About</span>
+                <div className="col-xs-4">
+                    <span onClick={() => {this.props.toggleAbout()}} className="navigation-item">About</span>
                     <span className="navigation-item">Experience</span>
                     <OpenProjects toggleProjects={this.props.toggleProjects} />
                     <span className="navigation-item">Contact</span>
@@ -72,10 +78,10 @@ var App = React.createClass({
             <div className="grid-nav col-xs-12">
                 <div className={showGridNav}>
                     <div className="grid-nav-wrap">
-                        <span className="grid-nav-item col-xs-6">About</span>
-                        <span onClick={() => {this.props.toggleExperience()}} className="grid-nav-item col-xs-6">Experience</span>
-                        <span onClick={() => {this.props.toggleProjects()}} className="grid-nav-item col-xs-6">Projects</span>
-                        <span className="grid-nav-item col-xs-6">Contact</span>
+                        <span onClick={() => {this.props.toggleAbout()}} className="grid-nav-item col-xs-5">About</span>
+                        <span onClick={() => {this.props.toggleExperience()}} className="grid-nav-item col-xs-5">Experience</span>
+                        <span onClick={() => {this.props.toggleProjects()}} className="grid-nav-item col-xs-5">Projects</span>
+                        <span className="grid-nav-item col-xs-5">Contact</span>
                     </div>
                 </div>
             </div>
