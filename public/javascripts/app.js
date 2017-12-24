@@ -149,23 +149,28 @@ var App = React.createClass({
                 <div className="experience-container col-xs-12">
                     <h1 className="experience-header">Work Experience</h1>
                         <div className="experience-item">
-                            <div className="experience-item-head">
-                                <img className="experience-item-image" src="https://cdn.thetiebar.com/layout/logo_header.svg" alt="The Tie Bar Logo" />
-                                <span className="experience-item-title">The Tie Bar</span>
-                                <p className="experience-description">Front End Web Developer</p>
+                            <div className="experience-item-head col-xs-12">
+                                <img className="experience-item-image col-lg-4 col-md-4" src="https://cdn.thetiebar.com/layout/logo_header.svg" alt="The Tie Bar Logo" />
+                                <div className="experience-item-head-details col-lg-8 col-md-8">
+                                    <span className="experience-item-title">The Tie Bar</span>
+                                    <p className="experience-description">Front End Web Developer</p>
+                                </div>
                             </div>
                             <div className="experience-item-body">
-                                description here
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
                             </div>
                         </div>
                         <div className="experience-item">
-                            <div className="experience-item-head">
-                                <img className="experience-item-image" src="https://cdn.shopify.com/s/files/1/1932/6945/t/1/assets/logo.svg?8576992817837470070" />
-                                <span className="experience-item-title">Bucketfeet</span>
-                                <p className="experience-description">Front End Web Developer</p>
+                            <div className="experience-item-head col-xs-12">
+                                <img className="experience-item-image col-lg-4 col-md-4" src="https://cdn.shopify.com/s/files/1/1932/6945/t/1/assets/logo.svg?8576992817837470070" />
+                                <div className="experience-item-head-details col-lg-8 col-md-8">
+                                    <span className="experience-item-title">Bucketfeet</span>
+                                    <p className="experience-description">Front End Web Developer</p>
+                                </div>
+        
                             </div>
                             <div className="experience-item-body">
-                                description here
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
                             </div>
                         </div>
                 </div>
