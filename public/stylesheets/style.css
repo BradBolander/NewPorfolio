@@ -8,7 +8,7 @@ body {
 }
 
 #hero-container {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -121,6 +121,8 @@ body {
 .experience-item-image {
   width: 100px;
   float: left;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .experience-item-title {
@@ -136,12 +138,15 @@ body {
   text-align: center;
   width: 100%;
   font-size: 14px;
+  margin-bottom: 0px;
 }
 
 .experience-item-body {
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .experience-item-head-details {
@@ -155,12 +160,24 @@ body {
   text-align: center;
 }
 
+.experience-item-date {
+  font-size: 10px;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 
 /* About */
 .about-container {
   border: thin solid black;
 }
 
+/* Contact */
+.contact-container {
+  border: thin solid black;
+  display: block;
+}
 
 /* General */
 .dn {

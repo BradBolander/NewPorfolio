@@ -1,7 +1,3 @@
-$( document ).ready(function() {
-
-});
-
 var App = React.createClass({
     getInitialState: function() {
         return {
@@ -15,7 +11,29 @@ var App = React.createClass({
 
     componentDidMount: function() {
       
-    },  
+    },
+
+    resetGridNav: function() {
+        this.resetSectionState();
+        this.setState({
+            showGridNav: true
+        });
+    },
+
+    resetSectionState: function() {
+        this.setState({
+            showProjects: false,
+            showExperience: false,
+            showAbout: false,
+            showContact: false
+        });
+    },
+    
+    toggleGridNav: function() {
+        this.setState({
+            showGridNav: this.state.showGridNav == true ? false : true
+        });
+    },
 
     toggleProjects: function() {
         this.setState({
@@ -29,6 +47,12 @@ var App = React.createClass({
         });
     },
 
+    toggleContact: function() {
+        this.setState({
+            showContact: this.state.showContact == true ? false : true
+        });
+    },
+
     toggleExperience: function() {
         this.setState({
             showExperience: this.state.showExperience == true ? false : true
@@ -38,10 +62,12 @@ var App = React.createClass({
     render: function() {
       return (
         <div id="app">
-            <Navigation toggleAbout={this.toggleAbout} toggleProjects={this.toggleProjects} toggleExperience={this.toggleExperience} />
+            <Navigation toggleContact={this.toggleContact} toggleAbout={this.toggleAbout} toggleProjects={this.toggleProjects} toggleExperience={this.toggleExperience} />
             <div className="col-xs-6 col-lg-offset-3 col-md-offset-3">
-                <GridNavigation showGridNav={this.state.showGridNav} toggleAbout={this.toggleAbout} toggleExperience={this.toggleExperience} toggleProjects={this.toggleProjects} />
+                <GridNavigation toggleGridNav={this.toggleGridNav} toggleContact={this.toggleContact} showGridNav={this.state.showGridNav} toggleAbout={this.toggleAbout} toggleExperience={this.toggleExperience} toggleProjects={this.toggleProjects} />
                 <Experience showExperience={this.state.showExperience} />
+                <Contact showContact={this.state.showContact} />
+                <About showAbout={this.state.showAbout} />
                 <ProjectGrid toggleProjects={this.toggleProjects} showProjects={this.state.showProjects} />
             </div>
         </div>
@@ -60,9 +86,9 @@ var App = React.createClass({
                 </div>
                 <div className="col-xs-4">
                     <span onClick={() => {this.props.toggleAbout()}} className="navigation-item">About</span>
-                    <span className="navigation-item">Experience</span>
+                    <span onClick={() => {this.props.toggleExperience()}} className="navigation-item">Experience</span>
                     <OpenProjects toggleProjects={this.props.toggleProjects} />
-                    <span className="navigation-item">Contact</span>
+                    <span onClick={() => {this.props.toggleContact()}} className="navigation-item">Contact</span>
                 </div>
             </div>
         );
@@ -70,6 +96,22 @@ var App = React.createClass({
   });
 
   var GridNavigation = React.createClass({
+
+    navItemSelect: function(index) {
+        if (index == 0) {
+            this.props.toggleAbout();
+            this.props.toggleGridNav();
+        } else if (index == 1) {
+            this.props.toggleExperience();
+            this.props.toggleGridNav();
+        } else if (index == 2) {
+            this.props.toggleProjects();
+            this.props.toggleGridNav();
+        } else {
+            this.props.toggleContact();
+            this.props.toggleGridNav();
+        }
+    },
       
     render: function() {
         var showGridNav = this.props.showGridNav == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
@@ -78,22 +120,12 @@ var App = React.createClass({
             <div className="grid-nav col-xs-12">
                 <div className={showGridNav}>
                     <div className="grid-nav-wrap">
-                        <span onClick={() => {this.props.toggleAbout()}} className="grid-nav-item col-xs-5">About</span>
-                        <span onClick={() => {this.props.toggleExperience()}} className="grid-nav-item col-xs-5">Experience</span>
-                        <span onClick={() => {this.props.toggleProjects()}} className="grid-nav-item col-xs-5">Projects</span>
-                        <span className="grid-nav-item col-xs-5">Contact</span>
+                        <span onClick={() => {this.navItemSelect(0)}} className="grid-nav-item col-xs-5">About</span>
+                        <span onClick={() => {this.navItemSelect(1)}} className="grid-nav-item col-xs-5">Experience</span>
+                        <span onClick={() => {this.navItemSelect(2)}} className="grid-nav-item col-xs-5">Projects</span>
+                        <span onClick={() => {this.navItemSelect(3)}} className="grid-nav-item col-xs-5">Contact</span>
                     </div>
                 </div>
-            </div>
-        );
-      }
-  });
-
-  var Hero = React.createClass({
-    render: function() {
-        return (
-            <div id="h">
-              
             </div>
         );
       }
@@ -121,6 +153,7 @@ var App = React.createClass({
 
         return (
             <div className="project-container col-xs-12">
+                <Back resetGridNav={this.props.resetGridNav} />
                 <div className={showProjects}>
                     <h1 className="projects-header">Side Projects</h1>
                     <div onClick={() => {this.handleClick(1)}} className="project-item col-lg-6">
@@ -152,6 +185,7 @@ var App = React.createClass({
         
         return (
             <div className={showExperience}>
+                <Back resetGridNav={this.props.resetGridNav} />
                 <div className="experience-container col-xs-12">
                     <h1 className="experience-header">Work Experience</h1>
                         <div className="experience-item">
@@ -160,6 +194,7 @@ var App = React.createClass({
                                 <div className="experience-item-head-details col-lg-8 col-md-8">
                                     <span className="experience-item-title">The Tie Bar</span>
                                     <p className="experience-description">Front End Web Developer</p>
+                                    <span className="experience-item-date">April 2016 - December 2017</span>
                                 </div>
                             </div>
                             <div className="experience-item-body">
@@ -172,8 +207,8 @@ var App = React.createClass({
                                 <div className="experience-item-head-details col-lg-8 col-md-8">
                                     <span className="experience-item-title">Bucketfeet</span>
                                     <p className="experience-description">Front End Web Developer</p>
+                                    <span className="experience-item-date">November 2015 - March 2016</span>
                                 </div>
-        
                             </div>
                             <div className="experience-item-body">
                                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
@@ -188,12 +223,15 @@ var App = React.createClass({
   var Contact = React.createClass({
     
     render: function() {
-        var showContact = this.props.showExperience == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
+        var showContact = this.props.showContact == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
         
         return (
-            <div className={showExperience}>
+            <div className={showContact}>
+                <Back resetGridNav={this.props.resetGridNav} />
                 <div className="contact-container col-xs-12">
-                   
+                    <span>Enter your email</span>
+                    <input type="text" value="" />
+                    <textarea type="text" value="" />
                 </div>
             </div>
         );
@@ -206,7 +244,8 @@ var App = React.createClass({
         var showAbout = this.props.showAbout == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
         
         return (
-            <div className={showExperience}>
+            <div className={showAbout}>
+                <Back resetGridNav={this.props.resetGridNav} />
                 <div className="about-container col-xs-12">
                    
                 </div>
@@ -226,6 +265,14 @@ var App = React.createClass({
             <span onClick={() => {this.handleClick()}} className="navigation-item open-projects">Projects</span>
         );
       }
+  });
+
+  var Back = React.createClass({
+    render: function() {
+        return (
+            <span onClick={() => {this.props.resetGridNav()}} className="back-button">Back</span>
+        );
+    }
   });
 
   var If = React.createClass({
