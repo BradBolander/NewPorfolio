@@ -1,5 +1,4 @@
 function initProj2() {
-    console.log('init 2');
     var container, 
     renderer, 
     scene, 
@@ -12,7 +11,6 @@ function initProj2() {
 
     // grab the container from the DOM
     container = document.getElementById( "hero-container" );
-    console.log('in here');
     // create a scene
     scene = new THREE.Scene();
 
@@ -45,7 +43,7 @@ function initProj2() {
     // create a sphere and assign the material
 
     mesh2 = new THREE.Mesh( 
-        new THREE.IcosahedronGeometry( 25, 5),
+        new THREE.IcosahedronGeometry( 20, 4),
         material 
     );
 

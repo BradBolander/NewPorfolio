@@ -23,6 +23,7 @@ body {
   display: block;
   padding-top: 15px;
   padding-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .navigation-header {
@@ -110,12 +111,14 @@ body {
 
 /* Experience */
 .experience-container {
-  background-color: rgba(0, 0, 0, 0.158)
+  background-color: rgba(0, 0, 0, 0.58);
+  color: white;
 }
 
 .experience-item {
   margin-bottom: 15px;
   border-bottom: thin solid black;
+  color: inherit;
 }
 
 .experience-item-image {
@@ -131,6 +134,7 @@ body {
   display: block;
   float: left;
   font-size: 18px;
+  color: inherit;
 }
 
 .experience-description {
@@ -139,6 +143,7 @@ body {
   width: 100%;
   font-size: 14px;
   margin-bottom: 0px;
+  color: inherit;
 }
 
 .experience-item-body {
@@ -147,10 +152,12 @@ body {
   margin-bottom: 20px;
   margin-left: 50px;
   margin-right: 50px;
+  color: inherit;
 }
 
 .experience-item-head-details {
   float: left;
+  color: inherit;
 }
 
 .experience-header {
@@ -158,6 +165,7 @@ body {
   margin-bottom: 20px;
   padding-bottom: 20px;
   text-align: center;
+  color: inherit;
 }
 
 .experience-item-date {
@@ -165,6 +173,7 @@ body {
   display: block;
   text-align: center;
   margin-bottom: 20px;
+  color: inherit;
 }
 
 

@@ -9,7 +9,7 @@ function initProj1() {
     camera.position.z = 10;
     scene = new THREE.Scene();
     // geometry
-    var triangles = 800;
+    var triangles = 400;
     var d = 50, d2 = d/2;	
     var geometry = new THREE.BufferGeometry();
     console.log(geometry);
@@ -43,12 +43,12 @@ function initProj1() {
 
     scene.add( mesh );
     
-    var geometry = new THREE.TorusGeometry( 55, 3, 206, 300 );
+    var geometry = new THREE.TorusGeometry( 55, 3, 206, 100 );
     var material = new THREE.MeshStandardMaterial( { color: 0xAAFF1D, wireframe: true } );
     var torus = new THREE.Mesh( geometry, material );
     scene.add( torus );
 
-    var geometry = new THREE.TorusGeometry( 25, 55, 206, 200 );
+    var geometry = new THREE.TorusGeometry( 25, 55, 206, 100 );
     var material = new THREE.MeshStandardMaterial( { color: 0xAAFF1D, wireframe: true } );
     var torusSmall = new THREE.Mesh( geometry, material );
     scene.add( torusSmall );  
