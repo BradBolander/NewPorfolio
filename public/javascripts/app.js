@@ -9,10 +9,6 @@ var App = React.createClass({
         };
     },
 
-    componentDidMount: function() {
-      
-    },
-
     resetGridNav: function() {
         this.resetSectionState();
         this.setState({
@@ -63,7 +59,7 @@ var App = React.createClass({
       return (
         <div id="app">
             <Navigation resetSectionState={this.resetSectionState} showGridNav={this.state.showGridNav} toggleGridNav={this.toggleGridNav} toggleContact={this.toggleContact} toggleAbout={this.toggleAbout} toggleProjects={this.toggleProjects} toggleExperience={this.toggleExperience} />
-            <div className="col-xs-6 col-lg-offset-3 col-md-offset-3">
+            <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-lg-offset-2 col-md-offset-2">
                 <GridNavigation resetSectionState={this.resetSectionState} toggleGridNav={this.toggleGridNav} toggleContact={this.toggleContact} showGridNav={this.state.showGridNav} toggleAbout={this.toggleAbout} toggleExperience={this.toggleExperience} toggleProjects={this.toggleProjects} />
                 <Experience resetGridNav={this.resetGridNav} showExperience={this.state.showExperience} />
                 <Contact resetGridNav={this.resetGridNav} showContact={this.state.showContact} />
@@ -74,8 +70,6 @@ var App = React.createClass({
       );
     }
   });
-
- 
 
   var Navigation = React.createClass({
 
@@ -135,16 +129,16 @@ var App = React.createClass({
     },
       
     render: function() {
-        var showGridNav = this.props.showGridNav == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
+        var showGridNav = this.props.showGridNav == true ? "magictime puffIn db" : "magictime puffOut dn";
         
         return (
             <div className="grid-nav col-xs-12">
                 <div className={showGridNav}>
                     <div className="grid-nav-wrap">
-                        <span onClick={() => {this.navItemSelect(0)}} className="grid-nav-item col-xs-5">About</span>
-                        <span onClick={() => {this.navItemSelect(1)}} className="grid-nav-item col-xs-5">Experience</span>
-                        <span onClick={() => {this.navItemSelect(2)}} className="grid-nav-item col-xs-5">Projects</span>
-                        <span onClick={() => {this.navItemSelect(3)}} className="grid-nav-item col-xs-5">Contact</span>
+                        <div onClick={() => {this.navItemSelect(0)}} className="grid-nav-item col-xs-5"><div className="grid-nav-item-underlay"></div>About</div>
+                        <div onClick={() => {this.navItemSelect(1)}} className="grid-nav-item col-xs-5"><div className="grid-nav-item-underlay"></div>Experience</div>
+                        <div onClick={() => {this.navItemSelect(2)}} className="grid-nav-item col-xs-5"><div className="grid-nav-item-underlay"></div>Projects</div>
+                        <div onClick={() => {this.navItemSelect(3)}} className="grid-nav-item col-xs-5"><div className="grid-nav-item-underlay"></div>Contact</div>
                     </div>
                 </div>
             </div>
@@ -170,26 +164,28 @@ var App = React.createClass({
 
 
     render: function() {
-        var showProjects = this.props.showProjects == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
+        var showProjects = this.props.showProjects == true ? "magictime puffIn db" : "magictime puffOut dn";
 
         return (
             <div className="project-container col-xs-12">
                 <div className={showProjects}>
-                    <Back resetGridNav={this.props.resetGridNav} />
-                    <h1 className="projects-header">Side Projects</h1>
-                    <div onClick={() => {this.handleClick(1)}} className="project-item col-lg-6">
+                    <div className="projects-header">
+                        <Back resetGridNav={this.props.resetGridNav} />
+                        <h1 className="projects-header-title">Projects</h1>
+                    </div>
+                    <div onClick={() => {this.handleClick(1)}} className="project-item col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <span className="project-item-title">Shader Triangles</span>
                         <img className="project-item-image" src="/images/geometry.png" />
                     </div>
-                    <div onClick={() => {this.handleClick(2)}} className="project-item col-xs-6">
+                    <div onClick={() => {this.handleClick(2)}} className="project-item col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <span className="project-item-title">Planet</span>
                         <img className="project-item-image" src="/images/planet.png" />
                     </div>
-                    <div onClick={() => {this.handleClick(3)}} className="project-item col-xs-6">
+                    <div onClick={() => {this.handleClick(3)}} className="project-item col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <span className="project-item-title">Sphere geometry</span>
                         <img className="project-item-image" src="/images/geo-gen.png" />
                     </div>
-                    <div onClick={() => {this.handleClick(4)}} className="project-item col-xs-6">
+                    <div onClick={() => {this.handleClick(4)}} className="project-item col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <span className="project-item-title">Garden</span>
                         <img className="project-item-image" src="/images/garden.jpg" />
                     </div> 
@@ -202,12 +198,12 @@ var App = React.createClass({
   var Experience = React.createClass({
     
     render: function() {
-        var showExperience = this.props.showExperience == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
+        var showExperience = this.props.showExperience == true ? "magictime puffIn db" : "magictime puffOut dn";
         
         return (
             <div className={showExperience}>
-                <Back resetGridNav={this.props.resetGridNav} />
                 <div className="experience-container col-xs-12">
+                    <Back resetGridNav={this.props.resetGridNav} />
                     <h1 className="experience-header">Work Experience</h1>
                         <div className="experience-item">
                             <div className="experience-item-head col-xs-12">
@@ -244,15 +240,37 @@ var App = React.createClass({
   var Contact = React.createClass({
     
     render: function() {
-        var showContact = this.props.showContact == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
+        var showContact = this.props.showContact == true ? "magictime puffIn db" : "magictime puffOut dn";
         
         return (
             <div className={showContact}>
                 <Back resetGridNav={this.props.resetGridNav} />
+                <h1 className="contact-header">Contact</h1>
                 <div className="contact-container col-xs-12">
-                    <span>Enter your email</span>
-                    <input type="text" value="" />
-                    <textarea type="text" value="" />
+                    <div className="contact-item col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <a href="mailto:bolanderbrad@gmail.com">
+                            <i className="fa fa-2x fa-envelope-o contact-icon" aria-hidden="true"></i>
+                            <span className="contact-text">bolanderbrad@gmail.com</span>
+                        </a>
+                    </div>
+                    <div className="contact-item col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <a href="tel:989-225-7158">
+                            <i className="fa fa-2x fa-mobile contact-icon" aria-hidden="true"></i>
+                            <span className="contact-text">(989)225-7158</span>
+                        </a>
+                    </div>
+                    <div className="contact-item col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <a target="_blank" href="https://github.com/bradbolander">
+                            <i className="fa fa-2x fa-github contact-icon" aria-hidden="true"></i>
+                            <span className="contact-text">github.com/bradbolander</span>
+                        </a>
+                    </div>
+                    <div className="contact-item col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <a target="_blank" href="https://www.linkedin.com/in/bradbolander/">
+                            <i className="fa fa-2x fa-linkedin contact-icon" aria-hidden="true"></i>
+                            <span className="contact-text">linkedin.com/in/bradbolander/</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         );
@@ -262,11 +280,12 @@ var App = React.createClass({
   var About = React.createClass({
     
     render: function() {
-        var showAbout = this.props.showAbout == true ? "magictime slideRightReturn db" : "magictime slideRight dn";
+        var showAbout = this.props.showAbout == true ? "magictime puffIn db" : "magictime puffOut dn";
         
         return (
             <div className={showAbout}>
                 <Back resetGridNav={this.props.resetGridNav} />
+                <h1 className="about-header">About Me</h1>
                 <div className="about-container col-xs-12">
                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
                 </div>
@@ -278,7 +297,7 @@ var App = React.createClass({
   var Back = React.createClass({
     render: function() {
         return (
-            <span onClick={() => {this.props.resetGridNav()}} className="back-button">Back</span>
+            <span onClick={() => {this.props.resetGridNav()}} className="back-button glyphicon glyphicon-menu-left"></span>
         );
     }
   });
@@ -289,9 +308,6 @@ var App = React.createClass({
         else return false;
     }
   });
-
-
-
 
   ReactDOM.render(
     <App/>,

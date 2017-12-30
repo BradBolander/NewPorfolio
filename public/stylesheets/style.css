@@ -37,10 +37,14 @@ body {
   display: block;
   float: right;
   margin-top: 5px;
+  transition: all .5s;
+  -webkit-transition: all .5s;
 }
 
 .navigation-item:hover {
-  color: #9BE4FF;
+  background: -webkit-linear-gradient(45deg, #FF6948, #48B4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
@@ -87,7 +91,18 @@ body {
 }
 
 .projects-header {
+  display: block;
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+.projects-header-title {
   text-align: center;
+  margin-bottom: 10px;
+  border-bottom: thin solid black;
+  padding-bottom: 10px;
+  margin-top: 10px;
 }
 
 
@@ -99,6 +114,38 @@ body {
   margin-left: 25px;
   text-align: center;
   border: thin solid black;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  transition: all .2s;
+  overflow: hidden;
+}
+
+.grid-nav-item:hover {
+  transform: scale(1.1);
+}
+
+.grid-nav-item:hover > .grid-nav-item-underlay {
+  left: -50px;
+}
+
+.grid-nav-item-underlay {
+  position: absolute;
+  background: -webkit-linear-gradient(45deg, #FF6948, #48B4FF);
+  transform: skew(25deg);
+  height: 300px;
+  border: thin solid black;
+  z-index: -1;
+  width: 150%;
+  transition: all .6s;
+  left: -200%;
+}
+
+.grid-nav-item:hover:after {
+  color: black;
 }
 
 .grid-nav-wrap {
@@ -111,8 +158,7 @@ body {
 
 /* Experience */
 .experience-container {
-  background-color: rgba(0, 0, 0, 0.58);
-  color: white;
+  color: black;
 }
 
 .experience-item {
@@ -179,13 +225,45 @@ body {
 
 /* About */
 .about-container {
-  border: thin solid black;
+  display: flex;
+}
+
+.about-header {
+  border-bottom: thin solid black;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: inherit;
 }
 
 /* Contact */
 .contact-container {
-  border: thin solid black;
+  display: flex;
+  padding: 0px;
+}
+
+.contact-item {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contact-text {
   display: block;
+}
+
+.contact-icon:hover {
+  color: red;
+}
+
+.contact-header {
+  border-bottom: thin solid black;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: inherit;
 }
 
 /* General */
@@ -197,6 +275,25 @@ body {
   display: block;
 }
 
-.dn {
-  display: none;
+.magictime {
+  -webkit-animation-duration: .5s !important;
+  -moz-animation-duration: .5s !important;
+  -o-animation-duration: .5s !important;
+  animation-duration: .5s !important;
+  }
+
+.back-button {
+  border: thin solid black;
+  padding: 15px;
+  display: block;
+  float: left;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all .5s;
+  clear: both;
+}
+
+.back-button:hover {
+  background-color: black;
+  color: white;
 }
