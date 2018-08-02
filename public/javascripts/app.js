@@ -58,18 +58,19 @@ var App = React.createClass({
     render: function() {
       return (
         <div id="app">
-            <Navigation resetSectionState={this.resetSectionState} showGridNav={this.state.showGridNav} toggleGridNav={this.toggleGridNav} toggleContact={this.toggleContact} toggleAbout={this.toggleAbout} toggleProjects={this.toggleProjects} toggleExperience={this.toggleExperience} />
+            {/* <Navigation resetSectionState={this.resetSectionState} showGridNav={this.state.showGridNav} toggleGridNav={this.toggleGridNav} toggleContact={this.toggleContact} toggleAbout={this.toggleAbout} toggleProjects={this.toggleProjects} toggleExperience={this.toggleExperience} /> */}
             <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-lg-offset-2 col-md-offset-2">
-                <GridNavigation resetSectionState={this.resetSectionState} toggleGridNav={this.toggleGridNav} toggleContact={this.toggleContact} showGridNav={this.state.showGridNav} toggleAbout={this.toggleAbout} toggleExperience={this.toggleExperience} toggleProjects={this.toggleProjects} />
-                <Experience resetGridNav={this.resetGridNav} showExperience={this.state.showExperience} />
-                <Contact resetGridNav={this.resetGridNav} showContact={this.state.showContact} />
-                <About resetGridNav={this.resetGridNav} showAbout={this.state.showAbout} />
-                <ProjectGrid resetGridNav={this.resetGridNav} toggleProjects={this.toggleProjects} showProjects={this.state.showProjects} />
+                {/* <GridNavigation resetSectionState={this.resetSectionState} toggleGridNav={this.toggleGridNav} toggleContact={this.toggleContact} showGridNav={this.state.showGridNav} toggleAbout={this.toggleAbout} toggleExperience={this.toggleExperience} toggleProjects={this.toggleProjects} /> */}
+                {/* <Experience resetGridNav={this.resetGridNav} showExperience={this.state.showExperience} /> */}
+                {/* <Contact resetGridNav={this.resetGridNav} showContact={this.state.showContact} /> */}
+                {/* <About resetGridNav={this.resetGridNav} showAbout={this.state.showAbout} /> */}
+                {/* <ProjectGrid resetGridNav={this.resetGridNav} toggleProjects={this.toggleProjects} showProjects={this.state.showProjects} /> */}
             </div>
         </div>
       );
     }
   });
+
 
   var Navigation = React.createClass({
 
@@ -95,16 +96,11 @@ var App = React.createClass({
 
     render: function() {
         return (
-            <div className="navigation col-xs-12">
-                <div className="col-xs-8">
-                    <span className="navigation-header">Brad Bolander</span>
-                </div>
-                <div className="col-xs-4">
-                    <span onClick={() => {this.navItemSelect(0)}} className="navigation-item">About</span>
-                    <span onClick={() => {this.navItemSelect(1)}} className="navigation-item">Experience</span>
-                    <span onClick={() => {this.navItemSelect(2)}} className="navigation-item open-projects">Projects</span>
-                    <span onClick={() => {this.navItemSelect(3)}} className="navigation-item">Contact</span>
-                </div>
+            <div className="navigation">
+                <span onClick={() => {this.navItemSelect(0)}} className="navigation-item">About</span>
+                <span onClick={() => {this.navItemSelect(1)}} className="navigation-item">Experience</span>
+                <span onClick={() => {this.navItemSelect(2)}} className="navigation-item open-projects">Projects</span>
+                <span onClick={() => {this.navItemSelect(3)}} className="navigation-item">Contact</span>
             </div>
         );
       }

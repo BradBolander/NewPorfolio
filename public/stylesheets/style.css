@@ -8,11 +8,7 @@ body {
 }
 
 #hero-container {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  position: relative;
   z-index: -1;
 }
 
@@ -20,14 +16,21 @@ body {
 /* Navigation */
 .navigation {
   border-bottom: thin solid black;
-  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-bottom: 30px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
 }
 
 .navigation-header {
   font-size: 24px;
+  color: #E1E1E1;
 }
 
 .navigation-item {
@@ -38,13 +41,15 @@ body {
   float: right;
   margin-top: 5px;
   transition: all .5s;
+  background: -webkit-linear-gradient(45deg, #FF6948, #48B4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   -webkit-transition: all .5s;
 }
 
 .navigation-item:hover {
-  background: -webkit-linear-gradient(45deg, #FF6948, #48B4FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  border-bottom: 1px solid -webkit-linear-gradient(45deg, #FF6948, #48B4FF);
+ 
 }
 
 
@@ -77,7 +82,7 @@ body {
   right: 0px;
   text-align: center;
   font-size: 20px;
-  color: black;
+  color: #E1E1E1;
 }
 
 .project-item-image {
